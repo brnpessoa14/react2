@@ -1,42 +1,349 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Estilo do cabeçalho: fundo, padding, sombra e fixação no topo da página */
+header {
+  background-color: #0D3461;
+  padding: 1rem 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Organiza os elementos do header em linha, espaçados e alinhados */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Imagem do logo, tamanho fixo e efeito de brilho ao passar o mouse */
+.logo-img {
+  height: 60px;
+  width: auto;
+  filter: brightness(100%) contrast(90%);
+  transition: filter 0.3s ease;
+}
+
+.logo-img:hover {
+  filter: brightness(120%) contrast(110%);
+}
+
+/* Menu de navegação: lista horizontal com espaçamento */
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+/* Links do menu: cor, peso da fonte, tamanho e transição da cor */
+nav a {
+  color: #E0E0E0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Linha decorativa animada abaixo do link ao passar mouse ou foco */
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -5px;
+  left: 0;
+  background-color: #F76C6C; /* coral vibrante */
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #F76C6C;
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  width: 100%;
+}
+
+/* Seção principal de destaque (hero): centraliza texto, define espaçamentos */
+.hero {
   text-align: center;
+  padding: 5rem 1rem 6rem;
+  max-width: 900px;
+  margin: 0 auto 3rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Título da hero: tamanho, cor, estilo e sombra para destaque */
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #F76C6C;
+  text-shadow: 0 0 8px #F76C6C88;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Subtítulo da hero com itálico e cor semi-transparente */
+.hero p {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #ffffffcc;
+  margin-bottom: 2.5rem;
+}
+
+/* Estilo padrão para botões: cor, arredondamento, sombra e transição */
+.btn {
+  display: inline-block;
+  background-color: #F76C6C;
+  color: #fff;
+  padding: 1rem 3rem;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(247, 108, 108, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+/* Efeito hover e foco do botão: cor mais escura, sombra maior, leve elevação */
+.btn:hover,
+.btn:focus {
+  background-color: #D05050;
+  box-shadow: 0 12px 25px rgba(208, 80, 80, 0.7);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+/* Variante de botão secundário com cor azul e efeitos parecidos */
+.btn-secondary {
+  background-color: #4E91F9;
+  box-shadow: 0 8px 15px rgba(78, 145, 249, 0.5);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: #3B6FD1;
+  box-shadow: 0 12px 25px rgba(59, 111, 209, 0.7);
+}
+
+/* Seções de conteúdo com background semi-transparente e sombra */
+.info-section {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  padding: 3rem 2rem;
+  border-radius: 15px;
+  background-color: #162447cc;
+  box-shadow: 0 8px 20px rgba(22, 36, 71, 0.8);
+  color: #ddd;
+  transition: background-color 0.3s ease;
+}
+
+/* Versão clara das sections, com cor de fundo diferente */
+.info-section.bg-light {
+  background-color: #1B2A47cc;
+}
+
+/* Títulos das seções com cor vibrante e sombra */
+.info-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #F76C6C;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 6px #F76C6Caa;
+}
+
+/* Parágrafos e listas com tamanho e espaçamento confortável */
+.info-section p,
+.info-section ul {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #ddd;
+  margin-bottom: 2rem;
+}
+
+/* Listas com marcadores dentro e espaçamento à esquerda */
+.info-section ul {
+  list-style: inside disc;
+  margin-left: 1rem;
+}
+
+/* Estilo para o elemento <address> - normaliza estilo e cor */
+address {
+  font-style: normal;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #ccc;
+}
+
+/* Links no endereço em destaque coral e transição suave */
+address a {
+  color: #F76C6C;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+/* Hover e foco destacam o link no endereço */
+address a:hover,
+address a:focus {
+  color: #fff;
+  outline: none;
+}
+
+/* Botão do menu mobile - escondido em desktop */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #E0E0E0;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+/* Estilo do menu mobile quando aberto */
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 900px) {
+  .hero h1 { font-size: 2.25rem; }
+  .hero p { font-size: 1.2rem; }
+  .mobile-menu-btn { display: block; }
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #162447;
+    padding: 6rem 2rem 2rem;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
   }
-  to {
-    transform: rotate(360deg);
+  .main-nav.active { right: 0; }
+  .main-nav ul { flex-direction: column; gap: 1.5rem; }
+  .main-nav a { font-size: 1.2rem; display: block; padding: 0.5rem 0; }
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+  .nav-overlay.active { display: block; }
+}
+
+@media (max-width: 600px) {
+  .info-section { 
+    padding: 2rem 1rem; 
+  }
+
+  /* Regra corrigida com maior especificidade */
+  header .logo-img { 
+    height: 45px !important; 
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+
+/* Ajuste específico para o botão na seção de inscrição */
+#inscricao .btn {
+  margin-top: 1rem;
+  display: inline-block;
 }
 
-.card {
-  padding: 2em;
+/* Estilos do Formulário */
+.form-group {
+  margin-bottom: 1.5rem;
 }
 
-.read-the-docs {
-  color: #888;
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #E0E0E0;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #2A3B5C;
+  border-radius: 8px;
+  background-color: #2A3B5C;
+  color: #FFFFFF;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #d53636;
+  background-color: #344B6E;
+}
+
+.form-group input::placeholder {
+  color: #A0A0A0;
+}
+
+/* Ajuste do formulário de inscrição */
+.inscricao-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.inscricao-form .btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Estilos da mensagem de sucesso */
+.success-message {
+  text-align: center;
+  max-width: 600px;
+  margin: 4rem auto;
+}
+
+.success-message h2 {
+  color: #4CAF50;
+  margin-bottom: 1.5rem;
+}
+
+.success-message p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #E0E0E0;
+}
+
+.success-message .btn {
+  background-color: #4CAF50;
+  box-shadow: 0 8px 15px rgba(76, 175, 80, 0.5);
+}
+
+.success-message .btn:hover,
+.success-message .btn:focus {
+  background-color: #45a049;
+  box-shadow: 0 12px 25px rgba(69, 160, 73, 0.7);
 }
